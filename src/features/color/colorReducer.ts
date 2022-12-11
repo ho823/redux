@@ -7,7 +7,7 @@ export interface ColorState {
 }
 
 const initialState: ColorState = {
-  value: '#ad4b5a',
+  value: '#225566',
   status: 'idle',
 };
 

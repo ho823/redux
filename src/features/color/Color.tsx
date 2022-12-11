@@ -11,11 +11,20 @@ import {
 export function Color() {
   const color = useAppSelector(selectColor);
   const dispatch = useAppDispatch();
-  const [incrementAmount, setIncrementAmount] = useState('2');
-  const newValue = 'red'
+
+  const [pickColor, setPickColor] = useState('#225566');
+  const newValue = String(pickColor) || '#225566';
+
 
   return (
     <div>
+      <p>Color pick</p>
+      <div>
+        <input type="color" id="head" name="head"
+          value={pickColor} onChange={e => setPickColor(e.target.value)} />
+      </div>
+
+      <span>color: {color} <br></br> pick color: {pickColor}</span>
       <div>
         Change Colors
         <button
@@ -24,7 +33,6 @@ export function Color() {
         >
           Change color
         </button>
-        <span>{color}</span>
 
         <button
           aria-label="reset color"
@@ -32,7 +40,6 @@ export function Color() {
         >
           Reset color by default
         </button>
-        <span>{color}</span>
 
       </div>
     </div>
